@@ -1,4 +1,4 @@
-FROM jboss/base-jdk
+FROM jboss/base-jdk:7
 
 MAINTAINER Robert Greathouse robert.i.greathouse@gmail.com
 
