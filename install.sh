@@ -6,4 +6,7 @@ echo "Changing to installs directory"
 cd installs/
 echo `pwd`
 
-unzip $INSTALL_ARTIFACT
+if [ ! -d jboss-eap-6.4/ ];
+then
+    unzip $INSTALL_ARTIFACT
+fi
