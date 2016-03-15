@@ -4,13 +4,15 @@ MAINTAINER Robert Greathouse robert.i.greathouse@gmail.com
 
 USER root
 
-RUN mkdir -p /opt/jboss-eap-6.4
-
-COPY installs/jboss-eap-6.4/ /opt/jboss-eap-6.4
-
-RUN mkdir -p /opt/jboss/.niogit/system.git/refs && \
+RUN mkdir -p /opt/jboss/jboss-eap-6.4  && \
+    mkdir -p /opt/jboss/.niogit/system.git/refs && \
+    chown -R 1001:0 /opt/jboss-eap-6.4 && \
     chown -R 1001:0 /opt/jboss-eap-6.4
+
+COPY installs/jboss-eap-6.4/ /opt/jboss/jboss-eap-6.4
+
+VOLUME /opt/jboss/.niogit/
 
 USER 1001
 
-CMD ["/opt/jboss-eap-6.4/bin/standalone.sh"]
+CMD ["/opt/jboss/jboss-eap-6.4/bin/standalone.sh"]
